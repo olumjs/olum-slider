@@ -1,0 +1,63 @@
+.slider {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.slider .slide {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+}
+
+.slider .nextBtn,
+.slider .prevBtn {
+  position: fixed;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.slider .nextBtn svg,
+.slider .prevBtn svg {
+  pointer-events: none;
+  width: 20px;
+  position: relative;
+  top: 2px;
+}
+
+.slider .nextBtn {
+  right: 0;
+}
+
+.slider .prevBtn {
+  left: 0;
+}
+
+.slider .dots {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0 auto;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.slider .dots span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: red;
+  display: inline-block;
+  cursor: pointer;
+  margin: 2.5px;
+}
+
+.slider .dots span.active {
+  background-color: blue;
+}
+/*# sourceMappingURL=app.css.map */
