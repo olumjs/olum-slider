@@ -1,3 +1,10 @@
+/**
+ * @name olum-slider
+ * @version 0.0.1
+ * @copyright 2021
+ * @author Eissa Saber
+ * @license MIT
+ */
 (function (root, factory) {
   if (typeof module === "object" && module.exports) module.exports = factory();
   else if (typeof define === "function" && define.amd) define(factory);
