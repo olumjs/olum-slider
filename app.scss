@@ -1,28 +1,37 @@
-.slider {
+#foo {
   position: relative;
   width: 100%;
   height: 500px;
-  white-space: nowrap;
-  overflow: hidden;
 
-  .slide {
+  .slides {
     width: 100%;
     height: 100%;
-    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+
+    .slide {
+      width: 100%;
+      height: 100%;
+      display: inline-block;
+    }
   }
 
   // btns
   .nextBtn,
   .prevBtn {
-    position: fixed;
+    position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
 
     svg {
       pointer-events: none;
       width: 20px;
       position: relative;
       top: 2px;
+      fill: white;
     }
   }
 
@@ -36,7 +45,7 @@
 
   // dots
   .dots {
-    position: fixed;
+    position: absolute;
     left: 0;
     right: 0;
     bottom: 0;
@@ -47,13 +56,13 @@
       width: 10px;
       height: 10px;
       border-radius: 50%;
-      background-color: red;
+      background-color: rgba(white, 0.5);
       display: inline-block;
       cursor: pointer;
       margin: 2.5px;
 
       &.active {
-        background-color: blue;
+        background-color: white;
       }
     }
   }
