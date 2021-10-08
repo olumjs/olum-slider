@@ -1,6 +1,6 @@
 /**
  * @name olum-slider
- * @version 0.0.1
+ * @version 0.0.2
  * @copyright 2021
  * @author Eissa Saber
  * @license MIT
@@ -33,6 +33,7 @@
 
     $this.nextSlide = function (btn) {
       btn.addEventListener("click", function () {
+        if (options.hasOwnProperty("arrows") && options.arrows === true && $this.interval) clearInterval($this.interval);
         if ($this.currentScroll < $this.totalWidth) {
           $this.index++;
           $this.currentScroll += $this.width;
@@ -43,6 +44,7 @@
 
     $this.prevSlide = function (btn) {
       btn.addEventListener("click", function () {
+        if (options.hasOwnProperty("arrows") && options.arrows === true && $this.interval) clearInterval($this.interval);
         if ($this.currentScroll > 0) {
           $this.index--;
           $this.currentScroll -= $this.width;
@@ -93,19 +95,20 @@
           // navigate
           $this.index = +e.target.getAttribute("data-index");
           $this.currentScroll = $this.index * $this.width;
+          if (options.hasOwnProperty("auto") && options.auto === true && $this.interval) clearInterval($this.interval);
           $this.navigate($this.currentScroll);
         }
       });
     };
 
     $this.auto = function () {
-      var interval = setInterval(function () {
+      $this.interval = setInterval(function () {
         if ($this.currentScroll < $this.totalWidth) {
           $this.index++;
           $this.currentScroll += $this.width;
           $this.navigate($this.currentScroll);
         } else {
-          clearInterval(interval);
+          clearInterval($this.interval);
         }
       }, options.interval);
     };
@@ -116,10 +119,10 @@
       var id = options.container.id;
       var selector = id ? "#" + id : "." + className;
       style.innerHTML = "\n    "
-        .concat(selector, " {\n      position: relative;\n      width: 100%;\n      height: 500px;\n    }\n    \n    ")
+        .concat(selector, " {\n      position: relative;\n      width: 100%;\n      }\n    \n    ")
         .concat(
           selector,
-          " .slides {\n      width: 100%;\n      height: 100%;\n      white-space: nowrap;\n      overflow: hidden;\n    }\n    \n    "
+          " .slides {\n      width: 100%;\n      height: 100%;\n      white-space: nowrap;\n      overflow: hidden;\n    direction: ltr !important;\n    }\n    \n    "
         )
         .concat(selector, " .slides .slide {\n      width: 100%;\n      height: 100%;\n      display: inline-block;\n    }\n    \n    ")
         .concat(selector, " .nextBtn,\n    ")

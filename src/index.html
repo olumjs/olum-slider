@@ -1,18 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="rtl">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Olum Slider</title>
+    <style>
+      #foo {
+        height: 500px;
+      }
+      #foo .slide {
+        line-height: 500px;
+        text-align: center;
+        color: white;
+        font-size: 30px;
+      }
+      #foo .slide:nth-last-of-type(1) {
+        background-color: #FFC93C;
+      }
+      #foo .slide:nth-last-of-type(2) {
+        background-color: #364F6B;
+      }
+      #foo .slide:nth-last-of-type(3) {
+        background-color: #E84545;
+      }
+    </style>
   </head>
 
   <body>
-
     <div id="foo">
-      <div class="slide" style="background-color: purple">content 1</div>
-      <div class="slide" style="background-color: royalblue">content 2</div>
-      <div class="slide" style="background-color: chocolate">content 3</div>
+      <div class="slide">1</div>
+      <div class="slide">2</div>
+      <div class="slide">3</div>
     </div>
 
     <script src="olum-slider.js"></script>
@@ -27,6 +46,5 @@
         interval: 3000,
       });
     </script>
-
   </body>
 </html>

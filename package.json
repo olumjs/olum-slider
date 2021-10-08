@@ -1,6 +1,6 @@
 {
   "name": "olum-slider",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "OlumSlider is a lightweight and flexible slider, written via vanilla js",
   "main": "dist/olum-slider.js",
   "directories": {
